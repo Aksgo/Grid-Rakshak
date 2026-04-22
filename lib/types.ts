@@ -4,6 +4,7 @@ export interface PMUMetadata {
   n_buses: number
   n_samples: number
   sampling_rate: number
+  /** 0 or absent means no ground-truth fault label is available */
   fault_bus: number
   simulation_time: number
 }

@@ -8,6 +8,7 @@ import { ChartsScreen } from "@/components/screens/charts-screen"
 import { TopologyScreen } from "@/components/screens/topology-screen"
 import { NotificationsScreen } from "@/components/screens/notifications-screen"
 import { UploadScreen } from "@/components/screens/upload-screen"
+import { FaultPredictionScreen } from "@/components/screens/fault-prediction-screen"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
@@ -20,9 +21,10 @@ import {
   Zap,
   Menu,
   X,
+  BrainCircuit,
 } from "lucide-react"
 
-type Screen = "health" | "charts" | "topology" | "notifications" | "upload"
+type Screen = "health" | "charts" | "topology" | "notifications" | "upload" | "prediction"
 
 const navItems: { id: Screen; label: string; icon: typeof Activity }[] = [
   { id: "health", label: "Health", icon: Activity },
@@ -30,6 +32,7 @@ const navItems: { id: Screen; label: string; icon: typeof Activity }[] = [
   { id: "topology", label: "Network", icon: Network },
   { id: "notifications", label: "Alerts", icon: Bell },
   { id: "upload", label: "Upload", icon: Upload },
+  { id: "prediction", label: "Prediction", icon: BrainCircuit },
 ]
 
 export default function PMUTrackerApp() {
@@ -57,6 +60,8 @@ export default function PMUTrackerApp() {
         return <NotificationsScreen />
       case "upload":
         return <UploadScreen />
+      case "prediction":
+        return <FaultPredictionScreen />
       default:
         return <HealthScreen />
     }
